@@ -63,9 +63,13 @@
 project(qhull)
 cmake_minimum_required(VERSION 2.6)
 
+
 # Define qhull_VERSION in CMakeLists.txt, Makefile, qhull-exports.def, qhull_p-exports.def, qhull_r-exports.def, qhull-warn.pri
 set(qhull_VERSION2 "2018.0.1 2018/12/28")  # not used, See global.c, global_r.c, rbox.c, rbox_r.c
 set(qhull_VERSION     "7.3.0")  # Advance every release
+
+include("${CMAKE_BINARY_DIR}/conanbuildinfo.cmake")
+conan_basic_setup()
 
 # SOVERSION -- qhull 2003 = empty, 2009 = 5, 2010-2012 = 6, 2015 (reentrant) = 7
 set(qhull_SOVERSION 7) # For SOVERSION 
