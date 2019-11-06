@@ -67,6 +67,9 @@
 project(qhull)
 cmake_minimum_required(VERSION 3.0)
 
+include("${CMAKE_BINARY_DIR}/conanbuildinfo.cmake")
+conan_basic_setup()
+
 # Define qhull_VERSION in README.txt, Announce.txt, qh-get.htm, CMakeLists.txt, 
 #   Makefile, qhull-exports.def, qhull_p-exports.def, qhull_r-exports.def, qhull-warn.pri
 set(qhull_VERSION2 "2019.1 2019/06/21")  # not used, See global.c, global_r.c, rbox.c, rbox_r.c
