@@ -5,7 +5,7 @@ from conans import ConanFile, CMake, tools
 
 class QhullConan(ConanFile):
     name = "qhull"
-    version = "7.3.2"
+    version = "7.3.0"
     url = "http://www.qhull.org/"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False], "fPIC": [True, False]}
