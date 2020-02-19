@@ -44,8 +44,14 @@ class QhullConan(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.libs = ["qhullcpp"]
-        if self.options.shared:
-            self.cpp_info.libs.append("qhull_r")
-        else:
-            self.cpp_info.libs.append("qhullstatic_r")
+        self.cpp_info.libs += {
+            ("Shared", "Debug"): ["qhullcpp_d", "qhull_rd"],
+            ("Shared", "Release"): ["qhullcpp", "qhull_r"],
+            ("Static", "Debug"): ["qhullcpp_d", "qhullstatic_rd"],
+            ("Static", "Release"): ["qhullcpp", "qhullstatic_r"],
+        }[
+            (
+                "Shared" if self.options.shared else "Static",
+                str(self.settings.build_type),
+            )
+        ]
